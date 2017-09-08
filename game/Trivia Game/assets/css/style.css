@@ -1,0 +1,81 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background-image: url('../images/background.jpg');
+}
+
+.container{
+  height: 600px;
+  background-color: #0f8dff;
+  border-radius: 3px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 2px 2px 10px #111;
+  font-family: 'Bungee', sans-serif;
+  margin-top: 100px;
+  position: relative;
+}
+
+.container h1{
+  position: relative;
+  top: 30px;
+  background-color: #0060b8;
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 2px 2px 10px #111;
+}
+
+#inner{
+  position: relative;
+  top: 75px;
+  height: 100px;
+  background-color: #0060b8;
+  box-shadow: 2px 2px 10px #111;
+  border-radius: 10px;
+}
+
+#inner2{
+  position: relative;
+  top: 100px;
+  height: 300px;
+  background-color: #0060b8;
+  box-shadow: 2px 2px 10px #111;
+  border-radius: 10px;
+}
+
+#inner3{
+  width: 75%;
+  margin: 0 auto;
+  position: relative;
+  top: 60px;
+  height: 50px;
+  background-color: #0060b8;
+  box-shadow: 2px 2px 10px #111;
+  margin-bottom: 10px;
+}
+
+#inner3:hover{
+  background-color: #fff;
+  color: #0060b8;
+}
+
+#inner3-sub{
+  position: relative;
+  top: 15px;
+}
+
+.btn{
+  margin-top: 30px;
+  box-shadow: 2px 2px 10px #111;
+  background-color: #fff;
+  color: #0060b8;
+  font-weight: bold;
+}
+
+#scores{
+  color: #fff;
+  margin-bottom: 5px;
+}
