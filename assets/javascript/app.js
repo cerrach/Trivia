@@ -139,7 +139,7 @@ function startTimer(){
   var control = setInterval(function(){
     timer--;
     console.log(timer);
-    if(timer < 0){
+    if(timer == 0){
       var clear = clearInterval(control);
       reset();
       end();
