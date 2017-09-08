@@ -143,29 +143,6 @@ function startTimer(){
       var clear = clearInterval(control);
       reset();
       end();
-    }else{
-      $(document).on('click','#inner3',function(event){
-        document.getElementById('myAudio').play();
-        if($(event.target).text().trim() === randomQuestion.actualAnswer){
-          randomQuestion.correct = 'correct';
-          var time = setTimeout(function(){
-            $('.container').css("background-color","#0dd913");
-            score += 100;
-          }, 1800)
-        }else{
-          randomQuestion.correct = 'incorrect';
-          var time2 = setTimeout(function(){
-            $('.container').css("background-color","#e7170d");
-          }, 1800);
-        }
-
-        checker.push(randomQuestion);
-
-        var time3 = setTimeout(function(){
-          reset();
-          progress();
-        },3000);
-      });
     }
   },1000)
 }
@@ -173,4 +150,27 @@ function startTimer(){
 $('#start').on("click",function(){
   startTimer();
   progress();
+});
+
+$(document).on('click','#inner3',function(event){
+  document.getElementById('myAudio').play();
+  if($(event.target).text().trim() === randomQuestion.actualAnswer){
+    randomQuestion.correct = 'correct';
+    var time = setTimeout(function(){
+      $('.container').css("background-color","#0dd913");
+      score += 100;
+    }, 1800)
+  }else{
+    randomQuestion.correct = 'incorrect';
+    var time2 = setTimeout(function(){
+      $('.container').css("background-color","#e7170d");
+    }, 1800);
+  }
+
+  checker.push(randomQuestion);
+
+  var time3 = setTimeout(function(){
+    reset();
+    progress();
+  },3000);
 });
