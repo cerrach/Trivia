@@ -92,6 +92,7 @@ var score = 0;
 var questionHolder = [questionOne,questionTwo,questionThree,questionFour,questionFive,questionSix,questionSeven,questionEight,questionNine,questionTen];
 var checker = [];
 var randomQuestion;
+var timer = 60;
 
 function nextQuestion(){
   if(questionHolder.length != 0){
@@ -131,32 +132,45 @@ function end(){
 
   var done = setTimeout(function(){
     window.location.href = window.location.href;
-  },3000);
+  },5000);
+}
+
+function startTimer(){
+  var control = setInterval(function(){
+    timer--;
+    console.log(timer);
+    if(timer < 0){
+      var clear = clearInterval(control);
+      reset();
+      end();
+    }else{
+      $(document).on('click','#inner3',function(event){
+        document.getElementById('myAudio').play();
+        if($(event.target).text().trim() === randomQuestion.actualAnswer){
+          randomQuestion.correct = 'correct';
+          var time = setTimeout(function(){
+            $('.container').css("background-color","#0dd913");
+            score += 100;
+          }, 1800)
+        }else{
+          randomQuestion.correct = 'incorrect';
+          var time2 = setTimeout(function(){
+            $('.container').css("background-color","#e7170d");
+          }, 1800);
+        }
+
+        checker.push(randomQuestion);
+
+        var time3 = setTimeout(function(){
+          reset();
+          progress();
+        },3000);
+      });
+    }
+  },1000)
 }
 
 $('#start').on("click",function(){
+  startTimer();
   progress();
-});
-
-$(document).on('click','#inner3',function(event){
-  document.getElementById('myAudio').play();
-  if($(event.target).text().trim() === randomQuestion.actualAnswer){
-    randomQuestion.correct = 'correct';
-    var time = setTimeout(function(){
-      $('.container').css("background-color","#0dd913");
-      score += 100;
-    }, 1800)
-  }else{
-    randomQuestion.correct = 'incorrect';
-    var time2 = setTimeout(function(){
-      $('.container').css("background-color","#e7170d");
-    }, 1800);
-  }
-
-  checker.push(randomQuestion);
-
-  var time3 = setTimeout(function(){
-    reset();
-    progress();
-  },3000);
 });
